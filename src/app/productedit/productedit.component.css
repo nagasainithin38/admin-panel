@@ -1,0 +1,14 @@
+.container{
+
+    height: 80vh;
+    overflow-y: scroll;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+form{
+    padding:20px;
+    border:1px solid rgb(221, 197, 197);
+    border-radius: 10px;
+}

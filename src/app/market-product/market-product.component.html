@@ -1,0 +1,11 @@
+<div class="" style="width: 18rem;">
+    <div class="d-flex justify-content-center">
+    <img src="{{product.image}}"  width="200px" height="200px!important" alt="...">
+</div>
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}} </h5>
+      <h5 class="card-text">Rating : {{product.rating}} </h5>
+      <h4 class="card-text">{{product.price|currency:"INR"}} </h4>
+      <button (click)="addToCart()" class="btn btn-primary">Add To Cart</button>
+    </div>
+  </div>

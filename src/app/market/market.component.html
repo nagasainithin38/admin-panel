@@ -1,0 +1,5 @@
+<div class="d-flex flex-wrap gap-3 align-items-stretch justify-content-center">
+    <div *ngFor="let i of products.products;let index=index " class="card" >
+        <app-market-product  [product]="i" [index]="index"></app-market-product>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-center">
+            <img [src]="userService.usersData[userId].profilePic" width="100px" height="100px" style="border-radius: 50%;" alt="">
+        </div>
+        <div class="d-flex gap-5 justify-content-between">
+            <div class="text-primary h3">Name</div>
+            <div class="h3">{{userService.usersData[userId].name}}</div>
+        </div>
+        <div class="d-flex gap-5 justify-content-between">
+            <div class="text-primary h3">Username</div>
+            <div class="h3">{{userService.usersData[userId].username}}</div>
+        </div>
+        <div class="d-flex gap-5 justify-content-between">
+            <div class="text-primary h3">Email</div>
+            <div class="h3">{{userService.usersData[userId].email}}</div>
+        </div>
+        <div class="d-flex gap-5 justify-content-between">
+            <div class="text-primary h3">Password</div>
+            <div class="h3">{{userService.usersData[userId].password}}</div>
+        </div>
+        <div class="d-flex gap-5 justify-content-between">
+            <div class="text-primary h3">Date of Birth</div>
+            <div class="h3">{{userService.usersData[userId].dob|date:'longDate'}}</div>
+        </div>
+    </div>
+</div>
