@@ -4,26 +4,33 @@ import { ToastrService } from 'ngx-toastr';
 import { UsersService } from '../users.service';
 import { ActivatedRoute } from '@angular/router';
 import { Users } from '../users';
+
 @Component({
   selector: 'app-useredit',
   templateUrl: './useredit.component.html',
   styleUrls: ['./useredit.component.css']
 })
 export class UsereditComponent {
+   
+
+changed(e:any){
+console.log(e.target.value)
+}
 
   registerForm: FormGroup
 userId!:number
-  constructor(private toastr: ToastrService,private userService:UsersService,private activatedRoute:ActivatedRoute) {
+  constructor(private toastr: ToastrService,public userService:UsersService,private activatedRoute:ActivatedRoute) {
     activatedRoute.params.subscribe(params=>{
       this.userId=+(params['id'])-1
     })
-    console.log(userService.usersData[this.userId])
+
+    console.log(userService.usersData[this.userId].dob.toISOString())
     this.registerForm = new FormGroup({
       name: new FormControl(userService.usersData[this.userId].name, [Validators.required, Validators.minLength(5)]),
       username: new FormControl(userService.usersData[this.userId].username, [Validators.required, Validators.minLength(5)]),
       password: new FormControl(userService.usersData[this.userId].password, [Validators.required, Validators.minLength(5)]),
       email: new FormControl(userService.usersData[this.userId].email, [Validators.required]),
-      dob: new FormControl(new Date(userService.usersData[this.userId].dob), [Validators.required]),
+      dob: new FormControl(userService.usersData[this.userId].dob.toISOString().slice(0,10), [Validators.required]),
       profilePic:new FormControl('https://st3.depositphotos.com/15648834/17930/v/450/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg')
     })
   }
@@ -107,7 +114,7 @@ userId!:number
       this.registerForm.get('username')?.value,
       this.registerForm.get('password')?.value,
       this.registerForm.get('email')?.value,
-      this.registerForm.get('dob')?.value,
+      new Date(this.registerForm.get('dob')?.value),
       this.registerForm.get('profilePic')?.value)
     this.toastr.success('',"User updated ",{
       timeOut: 2000,

@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3 w-100">
                 <label class="form-label ">Date of Birth</label>
-                <input type="date" formControlName="dob" class="form-control w-100">
+                <input type="date" formControlName="dob" (change)="changed($event)" class="form-control w-100">
             </div>
         </div>
         <div class="mb-3">

@@ -94,7 +94,7 @@ export class SigninComponent {
       this.registerForm.get('username')?.value,
       this.registerForm.get('password')?.value,
       this.registerForm.get('email')?.value,
-      this.registerForm.get('dob')?.value,
+      new Date(this.registerForm.get('dob')?.value),
       this.registerForm.get('profilePic')?.value)
     this.toastr.success('',"User created ",{
       timeOut: 2000,
